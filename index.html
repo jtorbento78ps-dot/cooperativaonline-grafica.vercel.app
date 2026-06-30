@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cooperativa Cop - Tu cooperativa en línea de diseño gráfico. Logos, ilustraciones, papelería y serigrafía para emprendedores en Costa Rica, Nicaragua y Colombia.">
+    <title>Cooperativa Cop | Diseño Gráfico y Cooperativa en Línea</title>
+    <style>
+        /* --- VARIABLES DE DISEÑO --- */
+        :root {
+            --primary-color: #4f46e5;     /* Azul índigo creativo */
+            --secondary-color: #ec4899;   /* Rosa vibrante */
+            --dark-color: #0f172a;        /* Azul noche oscuro */
+            --light-color: #f8fafc;       /* Gris muy claro */
+            --text-color: #334155;        /* Texto principal */
+            --border-color: #e2e8f0;      /* Bordes suaves */
+            --max-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- RESET Y CONFIGURACIÓN GENERAL --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        body {
+            line-height: 1.6;
+            padding-top: 80px; /* Compensa el header fijo */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--dark-color);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.15rem;
+        }
+
+        /* --- HEADER / NAVEGACIÓN FIJA --- */
+        .header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(79, 70, 229, 0.8)), 
+                        url('https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 80vh;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .tagline {
+            display: inline-block;
+            background-color: rgba(236, 72, 153, 0.2);
+            color: #fbcfe8;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(236, 72, 153, 0.5);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            color: #e2e8f0;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIÓN NOSOTROS --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+
+        .highlight-box {
+            background-color: #fff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-top: 20px;
+        }
+
+        /* --- SECCIÓN SERVICIOS --- */
+        .services {
+            background-color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .service-img {
+            height: 240px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .service-info {
+            padding: 30px;
+        }
+
+        .service-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        /* --- SECCIÓN CONTACTO --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-item svg {
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+        }
+
+        /* Formulario */
+        .contact-form {
+            background-color: var(--dark-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            color: #fff;
+        }
+
+        .contact-form h3 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            background-color: #1e293b;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #db2777;
+        }
+
+        /* --- SECCIÓN POLÍTICAS (Transparencia Google Ads) --- */
+        .policies-section {
+            background-color: #fff;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .policy-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .policy-box {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .policy-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .policy-box h3 {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .policy-box p {
+            color: var(--text-color);
+            margin-bottom: 12px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--dark-color);
+            color: #94a3b8;
+            padding: 70px 0 30px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr;
+            gap: 50px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 50px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand h4 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .footer-links h4, .footer-verification h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        /* Recuadro de Verificación Obligatorio para Anunciantes */
+        .verification-card {
+            background-color: #1e293b;
+            border-left: 4px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .verification-card p {
+            margin-bottom: 10px;
+        }
+
+        .verification-card p strong {
+            color: #fff;
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-title { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            .nav-menu {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            body { padding-top: 130px; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-text { font-size: 1.1rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="#inicio" class="logo-container">
+                <!-- Logotipo SVG Cooperativa Gráfica -->
+                <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Icono que representa nodos (cooperativa) y diseño gráfico (pluma/figuras) -->
+                    <rect x="20" y="20" width="30" height="30" rx="8" fill="#4f46e5"/>
+                    <circle cx="65" cy="35" r="15" fill="#ec4899"/>
+                    <path d="M20 65C20 56.7157 26.7157 50 35 50H65C73.2843 50 80 56.7157 80 65V80H20V65Z" fill="#0f172a"/>
+                    <circle cx="50" cy="50" r="12" fill="#f8fafc" stroke="#4f46e5" stroke-width="4"/>
+                </svg>
+                <span class="logo-text">Cooperativa <span>Cop</span></span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios Gráficos</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="#politicas" class="nav-link">Políticas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION (Keyword Mirroring: cooperativa en línea, diseño gráfico) -->
+        <section id="inicio" class="hero">
+            <div class="container hero-content">
+                <span class="tagline">Agencia Digital 100% Creativa</span>
+                <h1 class="hero-title">Tu Cooperativa en Línea Especializada en Diseño Gráfico</h1>
+                <p class="hero-text">Creamos pósters, ilustraciones, papelería, logotipos y serigrafías únicas para tu emprendimiento. Desde Colombia hacia Costa Rica, Nicaragua y todo Centroamérica, listos para operar en línea de manera eficiente.</p>
+                <a href="#contacto" class="btn-primary">Iniciar Proyecto Digital</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NOSOTROS -->
+        <section id="nosotros" class="section-padding container">
+            <div class="about-grid">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Equipo de diseño gráfico trabajando en línea">
+                </div>
+                <div class="about-text">
+                    <h3>Creatividad Sin Fronteras: Somos Cooperativa Cop</h3>
+                    <p>Somos una <strong>cooperativa gráfica</strong> conformada por un equipo de creativos apasionados. Cada diseño, ilustración y logotipo que entregamos es creado 100% por nuestro equipo de trabajo interno, sin intermediarios.</p>
+                    <p>Aunque contamos con una sede central de atención en el <strong>Centro Comercial SUBA en Bogotá, Colombia</strong>, nuestra estructura nos permite <strong>operar en línea</strong> con agilidad. Esto significa que atendemos de manera virtual a cientos de clientes y emprendedores en <strong>Costa Rica, Nicaragua y demás países de Centroamérica</strong>, enviando cada diseño en formatos digitales de alta resolución listos para producción.</p>
+                    <div class="highlight-box">
+                        <p><strong>Nuestra Ventaja:</strong> Al ser una cooperativa en línea, optimizamos tiempos de entrega, garantizamos comunicación constante y reducimos costos para apoyar el crecimiento visual de tu emprendimiento sin importar tu ubicación geográfica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN SERVICIOS -->
+        <section id="servicios" class="section-padding services">
+            <div class="container">
+                <h2 class="section-title">Soluciones para <span>Emprendedores</span></h2>
+                <p class="section-subtitle">Descubre nuestro catálogo de servicios. Al trabajar con nuestra cooperativa digital, accedes a un equipo multidisciplinario listo para materializar tus ideas.</p>
+                
+                <div class="services-grid">
+                    <!-- Servicio 1 -->
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80" alt="Pósters e Ilustraciones" class="service-img">
+                        <div class="service-info">
+                            <h3>Pósters e Ilustraciones</h3>
+                            <p>Creación de piezas gráficas artísticas y comerciales. Ilustraciones personalizadas 100% originales adaptadas al concepto de tu marca o evento, entregadas digitalmente para impresión.</p>
+                        </div>
+                    </div>
+                    <!-- Servicio 2 -->
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Diseño de Logotipos y Papelería" class="service-img">
+                        <div class="service-info">
+                            <h3>Logotipos y Papelería</h3>
+                            <p>Identidad visual corporativa sólida. Diseñamos logotipos funcionales, manuales de marca, tarjetas de presentación y papelería institucional para que tu emprendimiento destaque.</p>
+                        </div>
+                    </div>
+                    <!-- Servicio 3 -->
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&w=600&q=80" alt="Diseños de Stickers y Serigrafía" class="service-img">
+                        <div class="service-info">
+                            <h3>Stickers y Serigrafía</h3>
+                            <p>Arte optimizado para producción física. Preparamos archivos vectoriales exactos para impresión de stickers troquelados y separación de colores para estampado en serigrafía profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto" class="section-padding container">
+            <h2 class="section-title">Conecta con nuestro <span>Estudio</span></h2>
+            <p class="section-subtitle">¿Listo para mejorar la imagen de tu negocio? Contáctanos a través de nuestros canales oficiales o visita nuestra sede presencial en Bogotá.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info-box">
+                    <!-- Ubicación -->
+                    <div class="info-item">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div class="info-text">
+                            <h4>Centro de Operaciones y Local Fijo</h4>
+                            <p>Centro Comercial SUBA, Local H-14.<br>Bogotá, Colombia.<br><em>Modalidad de atención presencial y soporte de nuestra operativa en línea.</em></p>
+                        </div>
+                    </div>
+                    <!-- Correo -->
+                    <div class="info-item">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <div class="info-text">
+                            <h4>Recepción de Pedidos y Cotizaciones</h4>
+                            <p>pedidos@cooperativaonline-grafica.vercel.app</p>
+                        </div>
+                    </div>
+                    <!-- Teléfono/Horario -->
+                    <div class="info-item">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <div class="info-text">
+                            <h4>Atención Telefónica / Internacional</h4>
+                            <p>+57 310 555 8921 (Línea Colombia)<br><strong>Horario:</strong> Lunes a Viernes de 8:00 AM a 6:00 PM (Hora UTC-5).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- Formulario Optimizado para Conversiones en Ads -->
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('¡Gracias por contactar a Cooperativa Cop! Hemos recibido tu solicitud de diseño y un coordinador se comunicará contigo pronto.');">
+                        <h3>Solicitar Presupuesto</h3>
+                        <div class="form-group">
+                            <label for="name">Nombre / Emprendimiento</label>
+                            <input type="text" id="name" class="form-control" placeholder="Ej. Estudio Creativo CR" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" class="form-control" placeholder="tucorreo@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio de Interés</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" disabled selected>Selecciona un servicio gráfico...</option>
+                                <option value="logo">Diseño de Logotipo y Papelería</option>
+                                <option value="ilustracion">Ilustración / Póster</option>
+                                <option value="serigrafia">Diseño para Serigrafía / Stickers</option>
+                                <option value="otro">Asesoría Gráfica General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Cuéntanos sobre tu proyecto</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Describe los requisitos de tu diseño, colores de marca, etc." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Requerimiento</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN POLÍTICAS (Transparencia para Cumplimiento de Google Ads) -->
+        <section id="politicas" class="section-padding policies-section">
+            <div class="container policy-container">
+                <h2 class="section-title" style="font-size: 2rem;">Políticas de Privacidad y <span>Términos de Uso</span></h2>
+                <p class="section-subtitle" style="margin-bottom: 40px;">Marco legal y directrices de transparencia en nuestra operativa como cooperativa en línea.</p>
+                
+                <div class="policy-box">
+                    <h3>1. Identidad Corporativa y Representación Legal</h3>
+                    <p>El sitio web oficial de <strong>Cooperativa Cop</strong> opera bajo la titularidad, responsabilidad legal y administrativa de <strong>CAMILO ANDRES PATIÑO SANCHEZ</strong>, identificado con Cédula de Ciudadanía Colombiana número <strong>1.032.390.927</strong>. Todas las operaciones comerciales formales, contrataciones de diseño y atención presencial en el Centro Comercial SUBA (Bogotá) están amparadas bajo esta figura de representación.</p>
+                </div>
+
+                <div class="policy-box">
+                    <h3>2. Recopilación y Privacidad de Datos</h3>
+                    <p>Al operar en línea y prestar servicios virtuales internacionales (especialmente hacia Costa Rica y Nicaragua), garantizamos que la información recopilada en nuestros formularios de contacto (nombres, correos, descripciones de proyectos empresariales) se utiliza única y exclusivamente para la formulación de cotizaciones y el desarrollo de los proyectos gráficos solicitados.</p>
+                    <p><strong>Cooperativa Cop</strong> no vende, alquila ni distribuye bases de datos a terceros. Toda comunicación es estrictamente confidencial para proteger la propiedad intelectual de las ideas y emprendimientos de nuestros clientes.</p>
+                </div>
+
+                <div class="policy-box">
+                    <h3>3. Entregas Digitales y Términos de Servicio Gráfico</h3>
+                    <p>Dada la naturaleza de nuestra cooperativa digital, la totalidad de nuestros entregables finales (Logotipos, Ilustraciones, Archivos de Serigrafía) se realizan de manera <strong>100% virtual</strong> mediante enlaces de descarga segura o correo electrónico institucional. Los derechos de autor patrimoniales sobre los diseños finales son cedidos al cliente una vez se completa el pago total del servicio acordado, manteniendo nosotros únicamente el derecho de exhibición en nuestro portafolio profesional.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SEGURO -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h4>Cooperativa Cop</h4>
+                <p>Tu aliado estratégico en diseño gráfico. Operamos en línea conectando talento creativo desde Colombia hacia emprendedores de toda Centroamérica. Calidad, puntualidad y originalidad.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Menú Rápido</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nuestra Cooperativa</a></li>
+                    <li><a href="#servicios">Servicios en Línea</a></li>
+                    <li><a href="#contacto">Contacto & Ubicación</a></li>
+                    <li><a href="#politicas">Términos y Privacidad</a></li>
+                </ul>
+            </div>
+
+            <!-- SECCIÓN CRÍTICA DE VERIFICACIÓN PARA GOOGLE ADS -->
+            <div class="footer-verification">
+                <h4>Información de Verificación (Ads)</h4>
+                <div class="verification-card">
+                    <p><strong>Representante Legal / Anunciante:</strong><br>
+                    CAMILO ANDRES PATIÑO SANCHEZ</p>
+                    <p><strong>Documento de Identidad Oficial:</strong><br>
+                    C.C. 1.032.390.927 (Colombia)</p>
+                    <p><strong>Atención al Cliente y Soporte:</strong><br>
+                    pedidos@cooperativaonline-grafica.vercel.app</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Cooperativa Cop - Diseño Gráfico Online. Todos los derechos reservados.</p>
+            <p>Cumplimiento estricto de Políticas de Transparencia Comercial.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
